@@ -9,26 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcafefd5-4658-4aff-a04e-18b7aa3ae588" name="Changes" comment="added domain, ConnectionManager">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/Dao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/DisciplineDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/TagDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/dto/UserFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/exception/LoadingPropertiesException.java" afterDir="false" />
+    <list default="true" id="fcafefd5-4658-4aff-a04e-18b7aa3ae588" name="Changes" comment="add connection pool to ConnectionManager, added new exceptions, implemented UserDao with UserFilter and TagDao">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/HelloServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/UserDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/UserDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/Discipline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/Discipline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/DisciplineDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/DisciplineDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/TagDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/TagDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/exception/DAOException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/exception/DAOException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/UsersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/UsersServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/utils/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/utils/ConnectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/utils/PropertiesUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/utils/PropertiesUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +217,7 @@
       <workItem from="1724315352581" duration="1498000" />
       <workItem from="1724321814856" duration="1675000" />
       <workItem from="1724342169234" duration="7018000" />
-      <workItem from="1724388888838" duration="4043000" />
+      <workItem from="1724388888838" duration="5230000" />
     </task>
     <task id="LOCAL-00001" summary="init web-app">
       <option name="closed" value="true" />
@@ -250,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724071793412</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add connection pool to ConnectionManager, added new exceptions, implemented UserDao with UserFilter and TagDao">
+      <option name="closed" value="true" />
+      <created>1724402996134</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1724402996135</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +252,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init web-app" />
     <MESSAGE value="added domain, ConnectionManager" />
-    <option name="LAST_COMMIT_MESSAGE" value="added domain, ConnectionManager" />
+    <MESSAGE value="add connection pool to ConnectionManager, added new exceptions, implemented UserDao with UserFilter and TagDao" />
+    <option name="LAST_COMMIT_MESSAGE" value="add connection pool to ConnectionManager, added new exceptions, implemented UserDao with UserFilter and TagDao" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

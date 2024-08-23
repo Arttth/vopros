@@ -3,21 +3,21 @@ package org.arta.vopros.domain;
 import java.util.Objects;
 
 public class Tag {
-    private Long tagId;
+    private Long id;
     private String name;
 
-    public Tag(Long tagId, String name) {
-        this.tagId = tagId;
+    public Tag(Long id, String name) {
+        this.id = id;
         this.name = name;
     }
     public Tag() {}
 
-    public Long getTagId() {
-        return tagId;
+    public Long getId() {
+        return id;
     }
 
-    public void setTagId(Long tagId) {
-        this.tagId = tagId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -33,18 +33,18 @@ public class Tag {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tag tag = (Tag) o;
-        return Objects.equals(tagId, tag.tagId) && Objects.equals(name, tag.name);
+        return Objects.equals(id, tag.id) && Objects.equals(name, tag.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(tagId, name);
+        return Objects.hash(id, name);
     }
 
     @Override
     public String toString() {
         return "Tag{" +
-                "tagId=" + tagId +
+                "tagId=" + id +
                 ", name='" + name + '\'' +
                 '}';
     }

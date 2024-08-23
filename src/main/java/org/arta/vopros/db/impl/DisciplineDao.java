@@ -2,7 +2,6 @@ package org.arta.vopros.db.impl;
 
 import org.arta.vopros.db.Dao;
 import org.arta.vopros.domain.Discipline;
-import org.arta.vopros.domain.User;
 import org.arta.vopros.exception.DAOException;
 import org.arta.vopros.utils.ConnectionManager;
 
@@ -26,13 +25,13 @@ public class DisciplineDao implements Dao<Discipline, Long> {
         WHERE discipline_id = ?;
         """;
     private final static String UPDATE_SQL = """
-            UPDATE disciplines 
+            UPDATE disciplines
             SET discipline_name = ?,
                 parent_discipline_id = ?
             where discipline_id = ?;
             """;
     private final static String FIND_ALL_SQL = """
-            SELECT discipline_name, parent_discipline_id 
+            SELECT discipline_name, parent_discipline_id
             FROM disciplines
             """;
     @Override
@@ -83,8 +82,7 @@ public class DisciplineDao implements Dao<Discipline, Long> {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             rs.next();
-            Discipline discipline = buildDiscipline(rs);
-            return discipline;
+            return buildDiscipline(rs);
         } catch (SQLException e) {
             throw new DAOException(e);
         }
