@@ -1,50 +1,97 @@
 package org.arta.vopros.domain;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Question {
-    private String title;
-    private String questionExplPart;
-    private Integer reputation;
+    private Long id;
+    private String name;
+    private String questionMainPart;
+    private Integer likeCount;
     private User author;
-    private boolean isPublished;
-    private List<Discipline> disciplineList;
-    private List<Tag> tagList;
-    private List<Commentary> commentaryList;
+    private Discipline discipline;
 
-    public Question() {
-        this.isPublished = false;
+    public Question() {}
+
+    public Question(Long id, String name, String questionMainPart, Integer likeCount, User author, Discipline discipline) {
+        this.id = id;
+        this.name = name;
+        this.questionMainPart = questionMainPart;
+        this.likeCount = likeCount;
+        this.author = author;
+        this.discipline = discipline;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getQuestionMainPart() {
+        return questionMainPart;
+    }
+
+    public void setQuestionMainPart(String questionMainPart) {
+        this.questionMainPart = questionMainPart;
+    }
+
+    public Integer getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(Integer likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    public User getAuthor() {
+        return author;
     }
 
     public void setAuthor(User author) {
         this.author = author;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public Discipline getDiscipline() {
+        return discipline;
     }
 
-    public void setQuestionExplPart(String questionExplPart) {
-        this.questionExplPart = questionExplPart;
+    public void setDiscipline(Discipline discipline) {
+        this.discipline = discipline;
     }
 
-    public void publish() {
-        this.isPublished = true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Question question = (Question) o;
+        return Objects.equals(id, question.id) && Objects.equals(name, question.name) && Objects.equals(questionMainPart, question.questionMainPart) && Objects.equals(likeCount, question.likeCount) && Objects.equals(author, question.author) && Objects.equals(discipline, question.discipline);
     }
 
-    public void increaseReputation(Integer count) {
-        this.reputation += count;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, questionMainPart, likeCount, author, discipline);
     }
 
-    public void addDiscipline(Discipline discipline) {
-        this.disciplineList.add(discipline);
-    }
-
-    public void addTag(Tag tag) {
-        this.tagList.add(tag);
-    }
-
-    public void comment(Commentary commentary) {
-        this.commentaryList.add(commentary);
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", questionMainPart='" + questionMainPart + '\'' +
+                ", likeCount=" + likeCount +
+                ", author=" + author +
+                ", discipline=" + discipline +
+                '}';
     }
 }
