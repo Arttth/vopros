@@ -9,6 +9,6 @@
 
   <br/>
   <a href="sign-up.html">Регистрация</a>
-  <a href="users-servlet">Users</a>
+  <a href="users">Users</a>
 </body>
 </html>
