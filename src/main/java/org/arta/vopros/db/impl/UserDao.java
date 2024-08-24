@@ -32,13 +32,12 @@ public class UserDao implements Dao<User, Long> {
                 reputation = ?
             WHERE user_id = ?;
             """;
-    private static final String FIND_SQL = """
-            SELECT user_id, user_nickname, user_name, user_lastname, date_of_birth, profile_photo, reputation
-              FROM users WHERE user_id = ?;
-            """;
     private static final String FIND_ALL_SQL = """
             SELECT user_id, user_nickname, user_name, user_lastname, date_of_birth, profile_photo, reputation
               FROM users
+            """;
+    private static final String FIND_SQL = FIND_ALL_SQL + """
+              WHERE user_id = ?;
             """;
 
     public List<User> findAll(UserFilter userFilter) {
