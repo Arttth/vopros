@@ -27,14 +27,13 @@ public class SolutionDao implements Dao<Solution, Long> {
             question_id = ?
         WHERE solutions.solution_id = ?;
         """;
-    private final static String FIND_SQL = """
-        SELECT solution_text, solution_file, question_id
-        FROM solutions
-        WHERE solution_id = ?
-        """;
     private final static String FIND_ALL_SQL = """
-        SELECT solution_text, solution_file, question_id
+        SELECT solution_id,solution_text, solution_file, question_id, question_name,
+               quesion_main_part, like_count, user_id, discipline_id
         FROM solutions
+        """;
+    private final static String FIND_SQL = FIND_ALL_SQL + """
+        WHERE solution_id = ?
         """;
     @Override
     public Solution save(Solution solution) {
@@ -115,8 +114,14 @@ public class SolutionDao implements Dao<Solution, Long> {
     }
 
     private Solution buildSolution(ResultSet rs) throws SQLException{
-        Question question = new Question(rs.getLong("question_id"),
-                null, null, null, null,null);
+        Question question = new Question(
+                rs.getLong("question_id"),
+                rs.getString("question_name"),
+                rs.getString("question_main_part"),
+                rs.getInt("like_count"),
+                null,
+                null
+        );
         return new Solution(
                 rs.getLong("solution_id"),
                 rs.getString("solution_text"),
