@@ -39,7 +39,6 @@ public class UserDao implements Dao<User, Long> {
     private static final String FIND_SQL = FIND_ALL_SQL + """
               WHERE user_id = ?;
             """;
-
     public List<User> findAll(UserFilter userFilter) {
         List<Object> parameters = new ArrayList<>();
         List<String> whereSql = new ArrayList<>();

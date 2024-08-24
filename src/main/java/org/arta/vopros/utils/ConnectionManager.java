@@ -21,7 +21,6 @@ public final class ConnectionManager {
     private ConnectionManager() {}
 
     private static void initConnectionPool() {
-        System.out.println("initConnectionPool");
         String propertiesPoolSize = PropertiesUtils.getProperty(POOL_SIZE_KEY);
         int poolSize = propertiesPoolSize == null ? DEFAULT_POOL_SIZE : Integer.parseInt(propertiesPoolSize);
 

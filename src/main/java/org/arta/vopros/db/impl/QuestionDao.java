@@ -14,7 +14,7 @@ import java.util.List;
 public class QuestionDao implements Dao<Question, Long> {
     private final static QuestionDao INSTANCE = new QuestionDao();
     private final static String SAVE_SQL = """
-        INSERT INTO questions (question_name, quesion_main_part, like_count, user_id, discipline_id)
+        INSERT INTO questions (question_name, question_main_part, like_count, user_id, discipline_id)
         VALUES (?, ?, ?, ?, ?);
         """;
     private final static String DELETE_SQL = """
@@ -24,14 +24,14 @@ public class QuestionDao implements Dao<Question, Long> {
     private final static String UPDATE_SQL = """
         UPDATE questions
         SET question_name = ?,
-            quesion_main_part = ?,
+            question_main_part = ?,
             like_count = ?,
             user_id = ?,
             discipline_id = ?
         WHERE question_id = ?;
         """;
     private final static String FIND_ALL_SQL = """
-        SELECT question_id, question_name, quesion_main_part, like_count, user_id, discipline_id
+        SELECT question_id, question_name, question_main_part, like_count, user_id, discipline_id
         FROM questions
         """;
     private final static String FIND_SQL = FIND_ALL_SQL + """

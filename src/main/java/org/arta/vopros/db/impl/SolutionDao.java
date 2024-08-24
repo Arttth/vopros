@@ -29,7 +29,7 @@ public class SolutionDao implements Dao<Solution, Long> {
         """;
     private final static String FIND_ALL_SQL = """
         SELECT solution_id,solution_text, solution_file, question_id, question_name,
-               quesion_main_part, like_count, user_id, discipline_id
+               question_main_part, like_count, user_id, discipline_id
         FROM solutions
         """;
     private final static String FIND_SQL = FIND_ALL_SQL + """
