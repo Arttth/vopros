@@ -3,7 +3,6 @@ package org.arta.vopros.db.impl;
 import org.arta.vopros.db.Dao;
 import org.arta.vopros.domain.Discipline;
 import org.arta.vopros.domain.Question;
-import org.arta.vopros.domain.Solution;
 import org.arta.vopros.domain.User;
 import org.arta.vopros.exception.DAOException;
 import org.arta.vopros.utils.ConnectionManager;
@@ -31,14 +30,12 @@ public class QuestionDao implements Dao<Question, Long> {
             discipline_id = ?
         WHERE question_id = ?;
         """;
-    private final static String FIND_SQL = """
-        SELECT question_name, quesion_main_part, like_count, user_id, discipline_id
-        FROM questions
-        WHERE question_id = ?
-        """;
     private final static String FIND_ALL_SQL = """
-        SELECT question_name, quesion_main_part, like_count, user_id, discipline_id
+        SELECT question_id, question_name, quesion_main_part, like_count, user_id, discipline_id
         FROM questions
+        """;
+    private final static String FIND_SQL = FIND_ALL_SQL + """
+        WHERE question_id = ?
         """;
 
     @Override

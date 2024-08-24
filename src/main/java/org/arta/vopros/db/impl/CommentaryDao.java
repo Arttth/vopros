@@ -29,14 +29,15 @@ public class CommentaryDao implements Dao<Commentary, Long> {
             question_id = ?
         WHERE comment_id = ?;
         """;
-    private final static String FIND_SQL = """
-        SELECT comment_content, like_count, user_id, question_id
-        FROM comments
-        WHERE comment_id = ?
-        """;
     private final static String FIND_ALL_SQL = """
-        SELECT comment_content, like_count, user_id, question_id
-        FROM comments
+        SELECT c.comment_id, c.comment_content, c.like_count, u.user_nickname, u.user_name, u.user_lastname, u.date_of_birth, u.profile_photo,
+               u.reputation, q.question_name, q.quesion_main_part, q.like_count, q.user_id, q.discipline_id
+          FROM comments c
+          JOIN users u ON c.user_id = u.user_id
+          JOIN questions q ON c.question_id = q.question_id
+        """;
+    private final static String FIND_SQL = FIND_ALL_SQL + """
+        WHERE c.comment_id = ?
         """;
     @Override
     public Commentary save(Commentary commentary) {
@@ -116,12 +117,24 @@ public class CommentaryDao implements Dao<Commentary, Long> {
     public static CommentaryDao getInstance() {
         return INSTANCE;
     }
-    // TODO: full init user and question
     private Commentary buildCommentary(ResultSet rs) throws SQLException{
-        User user = new User(rs.getLong("user_id"),
-                null, null, null, null, null, null);
-        Question question = new Question(rs.getLong("question_id"),
-                null, null, null, null, null);
+        User user = new User(
+                rs.getLong("user_id"),
+                rs.getString("user_nickname"),
+                rs.getString("user_name"),
+                rs.getString("user_lastname"),
+                rs.getDate("date_of_birth"),
+                rs.getString("profile_photo"),
+                rs.getInt("reputation")
+        );
+        Question question = new Question(
+                rs.getLong("question_id"),
+                rs.getString("question_name"),
+                rs.getString("question_main_part"),
+                rs.getInt("like_count"),
+                user,
+                null
+        );
         return new Commentary(
                 rs.getLong("comment_id"),
                 rs.getString("comment_content"),
