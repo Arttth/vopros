@@ -16,21 +16,7 @@ import java.nio.charset.StandardCharsets;
 public class UsersServlet extends HttpServlet {
     private static final UserService userService = UserService.getInstance();
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
-        response.setContentType("text/html");
-        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
 
-        try (PrintWriter writer = response.getWriter()) {
-            writer.write("<ul>");
-            userService.findAll().stream().forEach(flightDto -> {
-                writer.write("""
-                        <li>
-                        <a href='/questions?userId=%d'>%s</a>
-                        </li>
-                        """.formatted(flightDto.userId(), flightDto.userDescription()));
-            });
-            writer.write("</ul>");
-        } catch (IOException e) {
-            throw new ServletResponseException(e);
-        }
+
     }
 }

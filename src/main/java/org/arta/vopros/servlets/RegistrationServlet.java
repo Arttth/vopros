@@ -12,7 +12,9 @@ import org.arta.vopros.utils.JspHelper;
 
 import java.io.IOException;
 
-@WebServlet("/registration")
+import static org.arta.vopros.utils.UrlPath.REGISTRATION;
+
+@WebServlet(REGISTRATION)
 public class RegistrationServlet extends HttpServlet {
     private static final UserService userService = UserService.getInstance();
     @Override

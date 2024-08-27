@@ -9,7 +9,9 @@ import org.arta.vopros.dto.UserDto;
 import org.arta.vopros.services.UserService;
 import org.arta.vopros.utils.JspHelper;
 
-@WebServlet("/login")
+import static org.arta.vopros.utils.UrlPath.LOGIN;
+
+@WebServlet(LOGIN)
 public class LoginServlet extends HttpServlet {
     private static final UserService userService = UserService.getInstance();
     @Override
