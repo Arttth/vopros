@@ -21,6 +21,17 @@ public class QuestionService {
                 )).collect(Collectors.toList());
     }
 
+    public List<QuestionDto> findAllByUserId(Long userId) {
+        return questionDao.findAllByUserId(userId).stream().map(question ->
+                new QuestionDto(
+                        question.getId(),
+                        question.getName(),
+                        question.getQuestionMainPart(),
+                        question.getLikeCount(),
+                        "%s - %s".formatted(question.getDiscipline(), question.getAuthor())
+                )).collect(Collectors.toList());
+    }
+
     private QuestionService() {}
     public static QuestionService getInstance() {
         return INSTANCE;

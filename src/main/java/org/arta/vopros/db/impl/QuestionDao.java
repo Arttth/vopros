@@ -3,6 +3,7 @@ package org.arta.vopros.db.impl;
 import org.arta.vopros.db.Dao;
 import org.arta.vopros.domain.Discipline;
 import org.arta.vopros.domain.Question;
+import org.arta.vopros.domain.Role;
 import org.arta.vopros.domain.User;
 import org.arta.vopros.exception.DAOException;
 import org.arta.vopros.utils.ConnectionManager;
@@ -31,12 +32,34 @@ public class QuestionDao implements Dao<Question, Long> {
         WHERE question_id = ?;
         """;
     private final static String FIND_ALL_SQL = """
-        SELECT question_id, question_name, question_main_part, like_count, user_id, discipline_id
-        FROM questions
+        SELECT q.question_id, q.question_name, q.question_main_part, q.like_count,
+         u.user_id, u.user_nickname, u.user_name, u.user_lastname, u.date_of_birth, u.profile_photo, u.reputation,
+         u.email, u.password, u.role, d.discipline_id, d.discipline_name, d.parent_discipline_id
+        FROM questions q
+        JOIN users u ON q.user_id = u.user_id
+        JOIN disciplines d ON q.discipline_id = d.discipline_id
         """;
     private final static String FIND_SQL = FIND_ALL_SQL + """
         WHERE question_id = ?
         """;
+    private final static String FIND_ALL_BY_USER_SQL = FIND_ALL_SQL + """
+            WHERE u.user_id = ?
+        """;
+
+    public List<Question> findAllByUserId(Long userId) {
+        try (Connection connection = ConnectionManager.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(FIND_ALL_BY_USER_SQL);
+            statement.setLong(1, userId);
+            ResultSet rs = statement.executeQuery();
+            List<Question> questions = new ArrayList<>();
+            while (rs.next()) {
+                questions.add(buildQuestion(rs));
+            }
+            return questions;
+        } catch (SQLException e) {
+            throw new DAOException(e);
+        }
+    }
 
     @Override
     public Question save(Question question) {
@@ -120,10 +143,23 @@ public class QuestionDao implements Dao<Question, Long> {
         return INSTANCE;
     }
     private Question buildQuestion(ResultSet rs) throws SQLException{
-        User user = new User(rs.getLong("user_id"),
-                null, null, null, null, null, null);
-        Discipline discipline = new Discipline(rs.getLong("discipline_id"),
-                null, null);
+        User user = new User(
+                rs.getLong("user_id"),
+                rs.getString("user_nickname"),
+                rs.getString("user_name"),
+                rs.getString("user_lastname"),
+                rs.getDate("date_of_birth").toLocalDate(),
+                rs.getString("profile_photo"),
+                rs.getInt("reputation"),
+                rs.getString("email"),
+                rs.getString("password"),
+                Role.find(rs.getString("role")).get()
+        );
+        Discipline discipline = new Discipline(
+                rs.getLong("discipline_id"),
+                rs.getString("discipline_name"),
+                null
+        );
         return new Question(
                 rs.getLong("question_id"),
                 rs.getString("question_name"),

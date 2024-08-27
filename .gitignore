@@ -4,6 +4,7 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
+.idea
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
@@ -11,7 +12,6 @@ target/
 *.iws
 *.iml
 *.ipr
-resources/application.properties
 
 ### Eclipse ###
 .apt_generated
@@ -37,3 +37,10 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+resources
+resources/*
+.gitignore
+mvnw
+mvnw.cmd
+.mvn

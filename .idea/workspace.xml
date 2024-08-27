@@ -9,14 +9,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcafefd5-4658-4aff-a04e-18b7aa3ae588" name="Changes" comment="implements TagDao">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/CommentaryDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/QuestionDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/SolutionDao.java" afterDir="false" />
+    <list default="true" id="fcafefd5-4658-4aff-a04e-18b7aa3ae588" name="Changes" comment="fix">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/dto/CreateUserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/exception/ValidationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/filter/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/mapper/CreateUserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/mapper/Mapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/RegistrationServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/utils/JspHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/utils/LocalDateFormatter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/validator/CreateUserValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/validator/Error.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/validator/ValidationResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/validator/Validator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1a8acb1f-cc7e-4f44-813c-839b80c0420e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1a8acb1f-cc7e-4f44-813c-839b80c0420e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1a8acb1f-cc7e-4f44-813c-839b80c0420e/storage_v2/_src_/database/vopros.n62szw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1a8acb1f-cc7e-4f44-813c-839b80c0420e/storage_v2/_src_/database/vopros.n62szw/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/Commentary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/Commentary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/CommentaryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/CommentaryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/DisciplineDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/DisciplineDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/QuestionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/QuestionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/services/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/services/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/QuestionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/QuestionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/SignupServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/UsersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/UsersServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/sign-up.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/sign-up.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +51,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Jsp File" />
         <option value="CSS File" />
+        <option value="Record" />
+        <option value="Jsp File" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -50,6 +75,9 @@
         <option name="mavenHome" value="Use Maven wrapper" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -93,6 +121,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.arta.vopros.utils" />
       <recent name="org.arta.vopros.exception" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -100,10 +129,12 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/jsp" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 10.1.18" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.18" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER" value="false" />
       <deployment>
         <artifact name="vopros:war exploded">
           <settings>
@@ -220,7 +251,11 @@
       <workItem from="1724315352581" duration="1498000" />
       <workItem from="1724321814856" duration="1675000" />
       <workItem from="1724342169234" duration="7018000" />
-      <workItem from="1724388888838" duration="9366000" />
+      <workItem from="1724388888838" duration="20305000" />
+      <workItem from="1724573803865" duration="4280000" />
+      <workItem from="1724591383777" duration="10000" />
+      <workItem from="1724646595094" duration="9619000" />
+      <workItem from="1724735048997" duration="3081000" />
     </task>
     <task id="LOCAL-00001" summary="init web-app">
       <option name="closed" value="true" />
@@ -254,7 +289,55 @@
       <option name="project" value="LOCAL" />
       <updated>1724404107951</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added commentaryDao, questionDao, SolutionDao">
+      <option name="closed" value="true" />
+      <created>1724409347559</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724409347560</updated>
+    </task>
+    <task id="LOCAL-00006" summary="implement link between commentaryDao and questionDao, userDao">
+      <option name="closed" value="true" />
+      <created>1724484126561</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724484126562</updated>
+    </task>
+    <task id="LOCAL-00007" summary="implement link between commentaryDao and questionDao, userDao">
+      <option name="closed" value="true" />
+      <created>1724484193115</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1724484193115</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add UserService and UserDto">
+      <option name="closed" value="true" />
+      <created>1724487004950</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1724487004950</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add UserServlet and ServletResponseException">
+      <option name="closed" value="true" />
+      <created>1724487039564</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1724487039564</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add questionDto and QuestionService">
+      <option name="closed" value="true" />
+      <created>1724490483640</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1724490483640</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +348,12 @@
     <MESSAGE value="added domain, ConnectionManager" />
     <MESSAGE value="add connection pool to ConnectionManager, added new exceptions, implemented UserDao with UserFilter and TagDao" />
     <MESSAGE value="implements TagDao" />
-    <option name="LAST_COMMIT_MESSAGE" value="implements TagDao" />
+    <MESSAGE value="added commentaryDao, questionDao, SolutionDao" />
+    <MESSAGE value="implement link between commentaryDao and questionDao, userDao" />
+    <MESSAGE value="add UserService and UserDto" />
+    <MESSAGE value="add UserServlet and ServletResponseException" />
+    <MESSAGE value="add questionDto and QuestionService" />
+    <option name="LAST_COMMIT_MESSAGE" value="add questionDto and QuestionService" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

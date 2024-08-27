@@ -3,6 +3,7 @@ package org.arta.vopros.db.impl;
 import org.arta.vopros.db.Dao;
 import org.arta.vopros.domain.Commentary;
 import org.arta.vopros.domain.Question;
+import org.arta.vopros.domain.Role;
 import org.arta.vopros.domain.User;
 import org.arta.vopros.exception.DAOException;
 import org.arta.vopros.utils.ConnectionManager;
@@ -31,7 +32,7 @@ public class CommentaryDao implements Dao<Commentary, Long> {
         """;
     private final static String FIND_ALL_SQL = """
         SELECT c.comment_id, c.comment_content, c.like_count, u.user_nickname, u.user_name, u.user_lastname, u.date_of_birth, u.profile_photo,
-               u.reputation, q.question_name, q.question_main_part, q.like_count, q.user_id, q.discipline_id
+               u.reputation, u.email, u.password, u.role, q.question_name, q.question_main_part, q.like_count, q.user_id, q.discipline_id
           FROM comments c
           JOIN users u ON c.user_id = u.user_id
           JOIN questions q ON c.question_id = q.question_id
@@ -123,9 +124,12 @@ public class CommentaryDao implements Dao<Commentary, Long> {
                 rs.getString("user_nickname"),
                 rs.getString("user_name"),
                 rs.getString("user_lastname"),
-                rs.getDate("date_of_birth"),
+                rs.getDate("date_of_birth").toLocalDate(),
                 rs.getString("profile_photo"),
-                rs.getInt("reputation")
+                rs.getInt("reputation"),
+                rs.getString("email"),
+                rs.getString("password"),
+                Role.find(rs.getString("role")).get()
         );
         Question question = new Question(
                 rs.getLong("question_id"),

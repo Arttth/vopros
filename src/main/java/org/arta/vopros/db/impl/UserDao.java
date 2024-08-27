@@ -1,6 +1,7 @@
 package org.arta.vopros.db.impl;
 
 import org.arta.vopros.db.Dao;
+import org.arta.vopros.domain.Role;
 import org.arta.vopros.domain.User;
 import org.arta.vopros.exception.DAOException;
 import org.arta.vopros.dto.UserFilter;
@@ -15,8 +16,8 @@ public class UserDao implements Dao<User, Long> {
     private final static UserDao INSTANCE = new UserDao();
     private static final String SAVE_SQL = """
             INSERT INTO users
-            (user_nickname, user_name, user_lastname, date_of_birth, profile_photo, reputation)
-            VALUES (?, ?, ?, ?, ?, ?, ?);
+            (user_nickname, user_name, user_lastname, date_of_birth, profile_photo, reputation, email, password, role)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
             """;
     private static final String DELETE_SQL = """
             DELETE FROM users
@@ -29,11 +30,14 @@ public class UserDao implements Dao<User, Long> {
                 user_lastname = ?,
                 date_of_birth = ?,
                 profile_photo = ?,
-                reputation = ?
+                reputation = ?,
+                email = ?,
+                password = ?,
+                role = ?
             WHERE user_id = ?;
             """;
     private static final String FIND_ALL_SQL = """
-            SELECT user_id, user_nickname, user_name, user_lastname, date_of_birth, profile_photo, reputation
+            SELECT user_nickname, user_name, user_lastname, date_of_birth, profile_photo, reputation, email, password, role
               FROM users
             """;
     private static final String FIND_SQL = FIND_ALL_SQL + """
@@ -93,18 +97,6 @@ public class UserDao implements Dao<User, Long> {
         }
     }
 
-    private static User buildUser(ResultSet rs) throws SQLException {
-        return new User(
-                rs.getLong("user_id"),
-                rs.getString("user_nickname"),
-                rs.getString("user_name"),
-                rs.getString("user_lastname"),
-                rs.getDate("date_of_birth"),
-                rs.getString("profile_photo"),
-                rs.getInt("reputation")
-        );
-    }
-
     @Override
     public boolean update(User user) {
         try (Connection connection = ConnectionManager.getConnection()) {
@@ -112,10 +104,12 @@ public class UserDao implements Dao<User, Long> {
             statement.setString(1, user.getNickname());
             statement.setString(2, user.getName());
             statement.setString(3, user.getLastname());
-            statement.setDate(4, user.getDateOfBirth());
+            statement.setDate(4, Date.valueOf(user.getDateOfBirth()));
             statement.setString(5, user.getProfilePhoto());
             statement.setInt(6, user.getReputation());
-            statement.setLong(7, user.getId());
+            statement.setString(7, user.getEmail());
+            statement.setString(8, user.getPassword());
+            statement.setLong(9, user.getId());
             return statement.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new DAOException(e);
@@ -140,9 +134,11 @@ public class UserDao implements Dao<User, Long> {
             statement.setString(1, user.getNickname());
             statement.setString(2, user.getName());
             statement.setString(3, user.getLastname());
-            statement.setDate(4, user.getDateOfBirth());
+            statement.setDate(4, Date.valueOf(user.getDateOfBirth()));
             statement.setString(5, user.getProfilePhoto());
             statement.setInt(6, user.getReputation());
+            statement.setString(7, user.getEmail());
+            statement.setString(8, user.getPassword());
             statement.executeUpdate();
 
             ResultSet keys = statement.getGeneratedKeys();
@@ -173,5 +169,19 @@ public class UserDao implements Dao<User, Long> {
 
     public static UserDao getInstance() {
         return INSTANCE;
+    }
+    private static User buildUser(ResultSet rs) throws SQLException {
+        return new User(
+                rs.getLong("user_id"),
+                rs.getString("user_nickname"),
+                rs.getString("user_name"),
+                rs.getString("user_lastname"),
+                rs.getDate("date_of_birth").toLocalDate(),
+                rs.getString("profile_photo"),
+                rs.getInt("reputation"),
+                rs.getString("email"),
+                rs.getString("password"),
+                Role.find(rs.getString("role")).get()
+        );
     }
 }

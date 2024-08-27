@@ -19,11 +19,6 @@ public class DisciplineDao implements Dao<Discipline, Long> {
             DELETE FROM disciplines
             WHERE discipline_id = ?;
         """;
-    private final static String FIND_SQL = """
-        SELECT discipline_name, parent_discipline_id
-        FROM disciplines
-        WHERE discipline_id = ?;
-        """;
     private final static String UPDATE_SQL = """
             UPDATE disciplines
             SET discipline_name = ?,
@@ -31,9 +26,12 @@ public class DisciplineDao implements Dao<Discipline, Long> {
             where discipline_id = ?;
             """;
     private final static String FIND_ALL_SQL = """
-            SELECT discipline_name, parent_discipline_id
+            SELECT discipline_id, discipline_name, parent_discipline_id
             FROM disciplines
             """;
+    private final static String FIND_SQL = FIND_ALL_SQL + """
+        WHERE discipline_id = ?;
+        """;
     @Override
     public Discipline save(Discipline discipline) {
         try (Connection connection = ConnectionManager.getConnection()){
@@ -103,6 +101,10 @@ public class DisciplineDao implements Dao<Discipline, Long> {
         }
     }
 
+    public DisciplineDao getInstance() {
+        return INSTANCE;
+    }
+    private DisciplineDao() {}
     private Discipline buildDiscipline(ResultSet rs) throws SQLException{
         Discipline parentDiscipline = new Discipline(
                 rs.getLong("parent_discipline_id"),
@@ -114,9 +116,4 @@ public class DisciplineDao implements Dao<Discipline, Long> {
                 parentDiscipline
         );
     }
-
-    public DisciplineDao getInstance() {
-        return INSTANCE;
-    }
-    private DisciplineDao() {}
 }
