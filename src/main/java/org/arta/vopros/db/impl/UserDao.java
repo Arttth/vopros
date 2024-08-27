@@ -10,6 +10,7 @@ import org.arta.vopros.utils.ConnectionManager;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class UserDao implements Dao<User, Long> {
@@ -43,6 +44,25 @@ public class UserDao implements Dao<User, Long> {
     private static final String FIND_SQL = FIND_ALL_SQL + """
               WHERE user_id = ?;
             """;
+    private static final String FIND_USER_BY_PASSWORD_AND_EMAIL = """
+            SELECT * FROM users WHERE email = ? AND password = ?;
+            """;
+
+    public Optional<User> getUserByEmailAndPassword(String email, String password) {
+        try (Connection connection = ConnectionManager.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(FIND_USER_BY_PASSWORD_AND_EMAIL);
+            statement.setString(1, email);
+            statement.setString(2, password);
+            ResultSet rs = statement.executeQuery();
+            User user = null;
+            if (rs.next()) {
+                user = buildUser(rs);
+            }
+            return Optional.ofNullable(user);
+        } catch (SQLException e) {
+            throw new DAOException(e);
+        }
+    }
     public List<User> findAll(UserFilter userFilter) {
         List<Object> parameters = new ArrayList<>();
         List<String> whereSql = new ArrayList<>();
@@ -139,6 +159,7 @@ public class UserDao implements Dao<User, Long> {
             statement.setInt(6, user.getReputation());
             statement.setString(7, user.getEmail());
             statement.setString(8, user.getPassword());
+            statement.setString(9, user.getRole().name());
             statement.executeUpdate();
 
             ResultSet keys = statement.getGeneratedKeys();

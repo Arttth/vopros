@@ -28,7 +28,7 @@
     </form>
     <c:forEach var="error" items="${requestScope.errors}">
         <div class="error">
-            error.message
+            ${error.message}
         </div>
     </c:forEach>
 </body>

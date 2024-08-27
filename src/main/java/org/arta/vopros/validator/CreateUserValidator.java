@@ -23,8 +23,8 @@ public class CreateUserValidator implements Validator<CreateUserDto>{
         if (!LocalDateFormatter.isValid(createUserDto.getDateOfBirth())) {
             validationResult.add(Error.of("invalid.birthday", "Birthday is invalid"));
         }
-        // TODO: email validation
-        if (createUserDto.getEmail().isEmpty()) {
+        if (createUserDto.getEmail().isEmpty() ||
+                !createUserDto.getEmail().matches("[0-9A-z]+@[0-9A-z]+.[0-9A-z]+")) {
             validationResult.add(Error.of("invalid.email", "Email is invalid"));
         }
         if (createUserDto.getPassword().isEmpty()) {

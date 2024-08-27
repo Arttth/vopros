@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @UtilityClass
 public final class LocalDateFormatter {
-    public static String PATTERN = "yyyy-mm-dd";
+    public static String PATTERN = "yyyy-MM-dd";
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern(PATTERN);
 
     public LocalDate format(String date) {

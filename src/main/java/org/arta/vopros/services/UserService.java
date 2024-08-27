@@ -6,27 +6,22 @@ import org.arta.vopros.db.impl.UserDao;
 import org.arta.vopros.dto.CreateUserDto;
 import org.arta.vopros.dto.UserDto;
 import org.arta.vopros.mapper.CreateUserMapper;
+import org.arta.vopros.mapper.UserMapper;
 import org.arta.vopros.validator.CreateUserValidator;
 import org.arta.vopros.exception.ValidationException;
 
 import java.text.ParseException;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserService {
     private static final UserService INSTANCE = new UserService();
     private static final UserDao userDao = UserDao.getInstance();
     private static final CreateUserValidator createUserValidator = CreateUserValidator.getInstance();
+    private static final UserMapper userMapper = UserMapper.getInstance();
     public List<UserDto> findAll() {
-        return userDao.findAll().stream().map(user ->
-                new UserDto(user.getId(), "%s, %s %s, (%s)"
-                        .formatted(
-                                user.getNickname(),
-                                user.getName(),
-                                user.getLastname(),
-                                user.getDateOfBirth()
-                        ))).collect(Collectors.toList());
+        return null;
     }
 
     public static Long create(CreateUserDto createUserDto) {
@@ -39,6 +34,10 @@ public class UserService {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static Optional<UserDto> login(String email, String password) {
+        return userDao.getUserByEmailAndPassword(email, password).map(userMapper::mapFrom); 
     }
     public static UserService getInstance() {
         return INSTANCE;
