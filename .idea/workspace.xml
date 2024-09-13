@@ -9,23 +9,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcafefd5-4658-4aff-a04e-18b7aa3ae588" name="Changes" comment="work on registration and login">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/filter/AuthorizationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/UserPageServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/utils/UrlPath.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" afterDir="false" />
+    <list default="true" id="fcafefd5-4658-4aff-a04e-18b7aa3ae588" name="Changes" comment="implements authorization and user page">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/dto/CreateQuestionDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/mapper/CreateQuestionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/mapper/QuestionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/QuestionCreateServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/QuestionsServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/UserPhotoUploadServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/create_question.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/questions.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/1a8acb1f-cc7e-4f44-813c-839b80c0420e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1a8acb1f-cc7e-4f44-813c-839b80c0420e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1a8acb1f-cc7e-4f44-813c-839b80c0420e/storage_v2/_src_/database/vopros.n62szw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1a8acb1f-cc7e-4f44-813c-839b80c0420e/storage_v2/_src_/database/vopros.n62szw/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/RegistrationServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/UsersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/UsersServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/sign-up.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/DisciplineDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/DisciplineDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/db/impl/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/domain/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/dto/CreateUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/dto/CreateUserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/dto/QuestionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/dto/QuestionDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/mapper/CreateUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/mapper/CreateUserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/services/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/services/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/QuestionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/QuestionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/UserPageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/arta/vopros/servlets/UserPageServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/sign-up.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,9 +48,9 @@
         <option value="HTML File" />
         <option value="Record" />
         <option value="Interface" />
-        <option value="Jsp File" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -74,37 +84,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.EmailSender.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Maven.vopros [clean].executor": "Run",
-    "Maven.vopros [install].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 10.1.18.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/tumer1/IdeaProjects/vopros/src/main/webapp/WEB-INF/lib",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.16015625",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "JavaScript.Libraries",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.EmailSender.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Maven.vopros [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.vopros [install].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.18.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/tumer1/IdeaProjects/vopros/src/main/webapp/WEB-INF/lib&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.16015625&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;JavaScript.Libraries&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.arta.vopros.utils" />
@@ -260,7 +270,10 @@
       <workItem from="1724591383777" duration="10000" />
       <workItem from="1724646595094" duration="9619000" />
       <workItem from="1724735048997" duration="3081000" />
-      <workItem from="1724742098988" duration="16369000" />
+      <workItem from="1724742098988" duration="17083000" />
+      <workItem from="1724815509788" duration="13234000" />
+      <workItem from="1724908433650" duration="54000" />
+      <workItem from="1726223230631" duration="4023000" />
     </task>
     <task id="LOCAL-00001" summary="init web-app">
       <option name="closed" value="true" />
@@ -358,7 +371,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724775254803</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="implements authorization and user page">
+      <option name="closed" value="true" />
+      <created>1724779470433</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1724779470434</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,18 +397,8 @@
     <MESSAGE value="add questionDto and QuestionService" />
     <MESSAGE value="add registration" />
     <MESSAGE value="work on registration and login" />
-    <option name="LAST_COMMIT_MESSAGE" value="work on registration and login" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/arta/vopros/filter/AuthorizationFilter.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="implements authorization and user page" />
+    <option name="LAST_COMMIT_MESSAGE" value="implements authorization and user page" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

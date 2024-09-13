@@ -3,9 +3,12 @@
 <html>
 <head>
     <title>Войти</title>
+    <style>
+        <%@include file="/WEB-INF/css/style.css"%>
+    </style>
 </head>
 <body>
-    <form method="post" action="/login">
+    <form method="post" action="/login" class="form">
         <label for="email"> Почта:
             <input type="email" id="email" name="email">
         </label><br/>

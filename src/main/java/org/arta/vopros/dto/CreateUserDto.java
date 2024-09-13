@@ -10,6 +10,7 @@ public class CreateUserDto {
     String name;
     String lastname;
     String dateOfBirth;
+    String profilePhoto;
     String email;
     String password;
 }

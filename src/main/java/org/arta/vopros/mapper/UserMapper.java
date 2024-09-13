@@ -21,6 +21,7 @@ public class UserMapper implements Mapper<User, UserDto> {
                 .birthday(object.getDateOfBirth())
                 .reputation(object.getReputation())
                 .email(object.getEmail())
+                .profilePhoto(object.getProfilePhoto())
                 .role((object.getRole()))
                 .build();
     }

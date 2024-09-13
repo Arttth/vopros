@@ -26,6 +26,7 @@ public class CreateUserMapper implements Mapper<CreateUserDto, User> {
                 .password(object.getPassword())
                 .reputation(0)
                 .role(Role.USER)
+                .profilePhoto(object.getProfilePhoto())
                 .build();
     }
 

@@ -24,7 +24,7 @@ public class UserService {
         return null;
     }
 
-    public static Long create(CreateUserDto createUserDto) {
+    public Long create(CreateUserDto createUserDto) {
         try {
             var validationResult = createUserValidator.isValid(createUserDto);
             if (!validationResult.isValid()) {
@@ -36,8 +36,12 @@ public class UserService {
         }
     }
 
-    public static Optional<UserDto> login(String email, String password) {
+    public Optional<UserDto> login(String email, String password) {
         return userDao.getUserByEmailAndPassword(email, password).map(userMapper::mapFrom); 
+    }
+
+    public Long uploadPhoto(String path) {
+        return null;
     }
     public static UserService getInstance() {
         return INSTANCE;

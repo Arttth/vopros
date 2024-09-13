@@ -4,5 +4,6 @@ public record QuestionDto(Long questionId,
                           String questionName,
                           String questionMainPart,
                           Integer likeCount,
-                          String meta) {
+                          String userNickname,
+                          String disciplineName) {
 }

@@ -48,6 +48,22 @@ public class UserDao implements Dao<User, Long> {
             SELECT * FROM users WHERE email = ? AND password = ?;
             """;
 
+    private static final String FIND_USER_BY_NICKNAME = """
+                SELECT * FROM users WHERE user_nickname = ?;
+            """;
+
+    public Optional<User> findUserByNickname(String nickname) {
+        try (Connection connection = ConnectionManager.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(FIND_USER_BY_NICKNAME);
+            preparedStatement.setString(1, nickname);
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+            return Optional.ofNullable(buildUser(rs));
+        } catch (SQLException e) {
+            throw new DAOException(e);
+        }
+    }
+
     public Optional<User> getUserByEmailAndPassword(String email, String password) {
         try (Connection connection = ConnectionManager.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(FIND_USER_BY_PASSWORD_AND_EMAIL);

@@ -8,6 +8,20 @@ body {
 
 header {
     margin: 0;
+    background-color: #c7c783;
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+}
+
+.logout__btn {
+    height: 100%;
+    border: none;
+    background-color: #c7c783;
+}
+
+.logout__btn:hover {
+    background: #969639;
 }
 
 .container {
@@ -17,6 +31,8 @@ header {
     height: 100vh;
     padding: 30px;
     background-color: #ececc0;
+    display: flex;
+    justify-content: space-between;
 }
 
 .user__info {
@@ -30,4 +46,24 @@ header {
 
 .user__reputation {
     font-size: 24px;
+}
+
+.user__photo__container {
+    width: 400px;
+    height: 400px;
+    border: 3px solid black;
+}
+
+.user__photo {
+    width: auto;
+    height: 100%;
+}
+
+.form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    padding: 30px;
+    background-color: #ececc0;
 }

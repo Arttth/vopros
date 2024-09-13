@@ -1,11 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: tumer1
-  Date: 27.08.2024
-  Time: 16:06
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>${sessionScope.user.name()} ${sessionScope.user.lastname()}</title>
@@ -26,6 +20,18 @@
             <div class="user__reputation">
                 Репутация: ${sessionScope.user.reputation()}
             </div>
+        </div>
+        <div class="user__photo__container">
+            <c:if test="${not empty sessionScope.user.profilePhoto()}">
+                <img class="user__photo" src="${sessionScope.user.profilePhoto()}"/>
+            </c:if>
+            <c:if test="${empty sessionScope.user.profilePhoto()}">
+                <img class="user__photo" src="/images/default.png"/>
+            </c:if>
+<%--            <form enctype='multipart/form-data' method="post" action="/user/photo-upload">--%>
+<%--                <input type="file" class="photo__upload" name="photo"/>--%>
+<%--                <button type="submit">Загрузить</button>--%>
+<%--            </form>--%>
         </div>
     </div>
 </body>

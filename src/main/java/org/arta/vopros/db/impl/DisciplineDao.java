@@ -8,6 +8,7 @@ import org.arta.vopros.utils.ConnectionManager;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class DisciplineDao implements Dao<Discipline, Long> {
     private final static DisciplineDao INSTANCE = new DisciplineDao();
@@ -32,6 +33,22 @@ public class DisciplineDao implements Dao<Discipline, Long> {
     private final static String FIND_SQL = FIND_ALL_SQL + """
         WHERE discipline_id = ?;
         """;
+    private final static String FIND_BY_NAME = """
+                SELECT * FROM disciplines WHERE discipline_name = ?;
+            """;
+
+    public Optional<Discipline> findByDisciplineName(String name) {
+        try (Connection connection = ConnectionManager.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_NAME);
+            preparedStatement.setString(1, name);
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+            return Optional.ofNullable(buildDiscipline(rs));
+        } catch (SQLException e) {
+            throw new DAOException(e);
+        }
+    }
+
     @Override
     public Discipline save(Discipline discipline) {
         try (Connection connection = ConnectionManager.getConnection()){
@@ -101,7 +118,7 @@ public class DisciplineDao implements Dao<Discipline, Long> {
         }
     }
 
-    public DisciplineDao getInstance() {
+    public static DisciplineDao getInstance() {
         return INSTANCE;
     }
     private DisciplineDao() {}
